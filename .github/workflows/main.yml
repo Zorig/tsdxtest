@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: '18'
           cache: 'yarn'
-      - run: yarn install --frozen-lockfile --ignore-scripts
-      - run: yarn lint
-      - run: yarn test --ci --coverage --maxWorkers=2
-      - run: yarn build
+      - run: yarn install --frozen-lockfile
+      - run: yarn run lint
+      - run: yarn run test --ci --coverage --maxWorkers=2
+      - run: yarn run build
