@@ -2,13 +2,6 @@ name: Publish
 on:
   release:
     types: [created]
-  workflow_run:
-    branches:
-      - main
-    workflows:
-      - CI
-    types:
-      - completed
 
 jobs:
   build:
@@ -24,5 +17,6 @@ jobs:
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-      - run: cd example
+      - run: |
+          cd example
           yarn upgrade @limitx/zoli
